@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 
 class Quiz extends Component {
 
-    handleSubmit = (event) => {
+    onSubmit = (event) => {
+        console.log('form submitted');
         event.preventDefault();
     };
 
@@ -13,7 +14,8 @@ class Quiz extends Component {
     };
 
     setFriendliness = event => {
-        console.log(event.target.value);
+        console.log(event.target.name);
+        return event.target.value
         //TODO how to get this value and its key to submit on form submission
     };
 
@@ -21,7 +23,7 @@ class Quiz extends Component {
         return (
             <div className='Quiz'>
                 <h2>How important are these things to you?</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className='appearance' onChange={event => this.setAppearance(event)}>
                         <label>Appearance</label>
                         <input type='radio' name='appearance' value='1'/>
