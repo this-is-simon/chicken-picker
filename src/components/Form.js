@@ -1,50 +1,82 @@
 import React, {Component} from 'react';
 
-class Quiz extends Component {
+class Form extends Component {
 
-    onSubmit = (event) => {
-        console.log('form submitted');
+    //I have been following this tutorial recently: https://react.tips/radio-buttons-in-react-16/
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            chicken: {}
+        };
+    }
+
+    handleFormSubmit = (event) => {
         event.preventDefault();
+        console.log("You have submitted:", this.event);
     };
 
-    setAppearance = event => {
-        console.log(event.target.value);
-        return event.target.value
-        //TODO how to get this value and its key to submit on form submission
-    };
-
-    setFriendliness = event => {
-        console.log(event.target.name);
-        return event.target.value
-        //TODO how to get this value and its key to submit on form submission
-    };
+    handleOptionChange(event) {
+        this.setState({
+            chicken: Object.assign({}, this.state.chicken, {
+                [event.target.name]: event.target.value,
+            }),
+        });
+    }
 
     render() {
         return (
-            <div className='Quiz'>
-                <h2>How important are these things to you?</h2>
-                <form onSubmit={this.props.onSubmit}>
-                    <div className='appearance' onChange={event => this.setAppearance(event)}>
-                        <label>Appearance</label>
-                        <input type='radio' name='appearance' value='1'/>
-                        <input type='radio' name='appearance' value='2'/>
-                        <input type='radio' name='appearance' value='3'/>
-                        <input type='radio' name='appearance' value='4'/>
-                        <input type='radio' name='appearance' value='5'/>
+            <div className='Form'>
+                <form onSubmit={this.handleFormSubmit}>
+                    <h2>Appearance</h2>
+                    <div className="form-check">
+                        <label>Option 1</label>
+                            <input
+                                type="radio"
+                                name="Appearance"
+                                value="1"
+                                onChange={e => this.handleOptionChange(e)}
+                                className="form-check-input"
+                            />
+                        <label>Option 2</label>
+                            <input
+                                type="radio"
+                                name="Appearance"
+                                value="2"
+                                onChange={e => this.handleOptionChange(e)}
+                                className="form-check-input"
+                            />
                     </div>
-                    <div className='friendliness' onChange={event => this.setFriendliness(event)}>
-                        <label>Friendliness</label>
-                        <input type='radio' name='friendliness' value='1'/>
-                        <input type='radio' name='friendliness' value='2'/>
-                        <input type='radio' name='friendliness' value='3'/>
-                        <input type='radio' name='friendliness' value='4'/>
-                        <input type='radio' name='friendliness' value='5'/>
+                    <br/>
+                    <div className="form-check">
+                        <h2>Friendliness</h2>
+                        <label>Option 1</label>
+                            <input
+                                type="radio"
+                                name="Friendliness"
+                                value="1"
+                                onChange={e => this.handleOptionChange(e)}
+                                className="form-check-input"
+                            />
+                        <label>Option 2</label>
+                            <input
+                                type="radio"
+                                name="Friendliness"
+                                value="2"
+                                onChange={e => this.handleOptionChange(e)}
+                                className="form-check-input"
+                            />
                     </div>
-                    <button type='submit'>Pick My Chicken</button>
+
+                    <div className="form-group">
+                        <button className="btn btn-primary mt-2" type="submit">
+                            Pick Chicken
+                        </button>
+                    </div>
                 </form>
             </div>
         )
     }
 }
 
-export default Quiz;
+export default Form;
