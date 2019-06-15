@@ -4,25 +4,25 @@ class Form extends Component {
 
     //I have been following this tutorial recently: https://react.tips/radio-buttons-in-react-16/
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            chicken: {}
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         chicken: {}
+    //     };
+    // }
 
     handleFormSubmit = (event) => {
         event.preventDefault();
         console.log("You have submitted:", this.event);
     };
 
-    handleOptionChange(event) {
-        this.setState({
-            chicken: Object.assign({}, this.state.chicken, {
-                [event.target.name]: event.target.value,
-            }),
-        });
-    }
+    // handleOptionChange(event) {
+    //     this.setState({
+    //         chicken: Object.assign({}, this.state.chicken, {
+    //             [event.target.name]: event.target.value,
+    //         }),
+    //     });
+    // }
 
     render() {
         return (
@@ -35,7 +35,7 @@ class Form extends Component {
                                 type="radio"
                                 name="Appearance"
                                 value="1"
-                                onChange={e => this.handleOptionChange(e)}
+                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                         <label>Option 2</label>
@@ -43,7 +43,7 @@ class Form extends Component {
                                 type="radio"
                                 name="Appearance"
                                 value="2"
-                                onChange={e => this.handleOptionChange(e)}
+                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                     </div>
@@ -55,7 +55,7 @@ class Form extends Component {
                                 type="radio"
                                 name="Friendliness"
                                 value="1"
-                                onChange={e => this.handleOptionChange(e)}
+                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                         <label>Option 2</label>
@@ -63,7 +63,7 @@ class Form extends Component {
                                 type="radio"
                                 name="Friendliness"
                                 value="2"
-                                onChange={e => this.handleOptionChange(e)}
+                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                     </div>

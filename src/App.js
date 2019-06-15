@@ -6,13 +6,32 @@ import './App.css'
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            chicken:
+                {
+                    appearance: '',
+                    friendliness: ''
+                }
+        };
+    }
+
+    handleOptionChange(event) {
+        this.setState({
+            chicken: Object.assign({}, this.state.chicken, {
+                [event.target.name]: event.target.value,
+            }),
+        });
+    }
+
     render() {
         return (
             <div className="App">
                 <Header />
                 <Form
-                    // options={this.state.selectedOption}
-                    // onSubmit={this.onSubmit}
+                    chicken={this.state.chicken}
+                    handleOptionChange={this.handleOptionChange}
                 />
                 {/*{this.state.isSubmitted && <PerfectChicken/>}*/}
             </div>
