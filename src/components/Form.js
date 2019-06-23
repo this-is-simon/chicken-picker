@@ -2,27 +2,10 @@ import React, {Component} from 'react';
 
 class Form extends Component {
 
-    //I have been following this tutorial recently: https://react.tips/radio-buttons-in-react-16/
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         chicken: {}
-    //     };
-    // }
-
     handleFormSubmit = (event) => {
         event.preventDefault();
         console.log("You have submitted:", this.event);
     };
-
-    // handleOptionChange(event) {
-    //     this.setState({
-    //         chicken: Object.assign({}, this.state.chicken, {
-    //             [event.target.name]: event.target.value,
-    //         }),
-    //     });
-    // }
 
     render() {
         return (
@@ -33,7 +16,7 @@ class Form extends Component {
                         <label>Option 1</label>
                             <input
                                 type="radio"
-                                name="Appearance"
+                                name="appearance"
                                 value="1"
                                 onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
@@ -41,7 +24,7 @@ class Form extends Component {
                         <label>Option 2</label>
                             <input
                                 type="radio"
-                                name="Appearance"
+                                name="appearance"
                                 value="2"
                                 onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
@@ -53,7 +36,7 @@ class Form extends Component {
                         <label>Option 1</label>
                             <input
                                 type="radio"
-                                name="Friendliness"
+                                name="friendliness"
                                 value="1"
                                 onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
@@ -61,7 +44,7 @@ class Form extends Component {
                         <label>Option 2</label>
                             <input
                                 type="radio"
-                                name="Friendliness"
+                                name="friendliness"
                                 value="2"
                                 onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"

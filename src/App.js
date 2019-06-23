@@ -15,7 +15,8 @@ class App extends Component {
                     friendliness: ''
                 }
         };
-    }
+        this.handleOptionChange = this.handleOptionChange.bind(this);
+    };
 
     handleOptionChange(event) {
         this.setState({
