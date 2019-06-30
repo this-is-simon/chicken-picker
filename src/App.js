@@ -13,28 +13,19 @@ class App extends Component {
                 {
                     appearance: '',
                     friendliness: ''
-                }
+                },
+            isSubmitted: false
         };
-        this.handleOptionChange = this.handleOptionChange.bind(this);
     };
-
-    handleOptionChange(event) {
-        this.setState({
-            chicken: Object.assign({}, this.state.chicken, {
-                [event.target.name]: event.target.value,
-            }),
-        });
-    }
 
     render() {
         return (
             <div className="App">
                 <Header />
                 <Form
-                    chicken={this.state.chicken}
-                    handleOptionChange={this.handleOptionChange}
+                    handleFormSubmit={this.handleFormSubmit}
                 />
-                {/*{this.state.isSubmitted && <PerfectChicken/>}*/}
+                {this.state.isSubmitted && <PerfectChicken/>}
             </div>
         );
     }

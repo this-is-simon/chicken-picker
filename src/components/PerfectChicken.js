@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import fancyChicken from '../images/fancy_chicken_1.jpg';
 
 class PerfectChicken extends Component {
     render() {
         return (
-        <p>This is your perfect chicken.</p>
+            <div>
+                <p>This is your perfect chicken.</p>
+                <img src={fancyChicken}/>
+            </div>
         )
     }
 }

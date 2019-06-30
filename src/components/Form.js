@@ -4,7 +4,16 @@ class Form extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log("You have submitted:", this.event);
+        const data = new FormData(event.target);
+        this.setState({
+            chicken:
+                {
+                    appearance: data.get('appearance'),
+                    friendliness: data.get('friendliness')
+                },
+            isSubmitted: true
+        });
+        console.log('State is now:', this.state)
     };
 
     render() {
@@ -18,7 +27,6 @@ class Form extends Component {
                                 type="radio"
                                 name="appearance"
                                 value="1"
-                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                         <label>Option 2</label>
@@ -26,7 +34,6 @@ class Form extends Component {
                                 type="radio"
                                 name="appearance"
                                 value="2"
-                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                     </div>
@@ -38,7 +45,6 @@ class Form extends Component {
                                 type="radio"
                                 name="friendliness"
                                 value="1"
-                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                         <label>Option 2</label>
@@ -46,7 +52,6 @@ class Form extends Component {
                                 type="radio"
                                 name="friendliness"
                                 value="2"
-                                onChange={e => this.props.handleOptionChange(e)}
                                 className="form-check-input"
                             />
                     </div>
