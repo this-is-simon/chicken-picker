@@ -14,10 +14,27 @@ class App extends Component {
                     appearance: '',
                     friendliness: ''
                 },
+            perfectChicken: '',
             isSubmitted: false
         };
     };
 
+    // TODO write chickenPickingCalculator
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        this.setState({
+            chicken:
+                {
+                    appearance: data.get('appearance'),
+                    friendliness: data.get('friendliness')
+                },
+            isSubmitted: true
+        });
+    };
+
+    //TODO consider passing chicken object {} to PerfectChicken, eg pickedChicken={ this.state.chicken }
     render() {
         return (
             <div className="App">
@@ -25,7 +42,7 @@ class App extends Component {
                 <Form
                     handleFormSubmit={this.handleFormSubmit}
                 />
-                {this.state.isSubmitted && <PerfectChicken/>}
+                {this.state.isSubmitted && <PerfectChicken />}
             </div>
         );
     }

@@ -2,24 +2,10 @@ import React, {Component} from 'react';
 
 class Form extends Component {
 
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.target);
-        this.setState({
-            chicken:
-                {
-                    appearance: data.get('appearance'),
-                    friendliness: data.get('friendliness')
-                },
-            isSubmitted: true
-        });
-        console.log('State is now:', this.state)
-    };
-
     render() {
         return (
             <div className='Form'>
-                <form onSubmit={this.handleFormSubmit}>
+                <form onSubmit={this.props.handleFormSubmit}>
                     <h2>Appearance</h2>
                     <div className="form-check">
                         <label>Option 1</label>
