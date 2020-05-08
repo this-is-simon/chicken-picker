@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import fancyChicken from '../images/fancy_chicken_1.jpg';
+import fancyChicken from '../assets/images/fancy_chicken_1.jpg';
 
 class PerfectChicken extends Component {
     //TODO pick chicken function based on chicken object passed into here through props
