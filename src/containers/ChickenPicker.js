@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import {Route} from "react-router-dom";
 import Header from "../components/Header";
 import Form from "../components/Form";
 import PerfectChicken from "../components/PerfectChicken";
+import {About} from "../components/About";
+import {Contact} from "../components/Contact";
 
 class ChickenPicker extends Component {
     constructor(props) {
@@ -37,6 +40,8 @@ class ChickenPicker extends Component {
         return (
             <div className="ChickenPicker">
                 <Header />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
                 <Form
                     handleFormSubmit={this.handleFormSubmit}
                 />
