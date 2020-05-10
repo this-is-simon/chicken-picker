@@ -40,12 +40,12 @@ class ChickenPicker extends Component {
         return (
             <div className="ChickenPicker">
                 <Header />
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
                 <Form
                     handleFormSubmit={this.handleFormSubmit}
                 />
                 {this.state.isSubmitted && <PerfectChicken />}
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
             </div>
         );
     }
