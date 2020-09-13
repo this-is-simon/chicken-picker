@@ -25,3 +25,6 @@ yarn-error.log*
 
 #image files
 /src/images
+
+#misc
+.vscode/

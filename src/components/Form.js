@@ -6,38 +6,38 @@ class Form extends Component {
         return (
             <div className='Form'>
                 <form onSubmit={this.props.handleFormSubmit}>
-                    <h2>Appearance</h2>
+                    <h2>Beginner Friendly</h2>
                     <div className="form-check">
-                        <label>Option 1</label>
+                        <label>Yes</label>
                             <input
                                 type="radio"
-                                name="appearance"
-                                value="1"
+                                name="beginnerFriendly"
+                                value="true"
                                 className="form-check-input"
                             />
-                        <label>Option 2</label>
+                        <label>No</label>
                             <input
                                 type="radio"
-                                name="appearance"
-                                value="2"
+                                name="beginnerFriendly"
+                                value="false"
                                 className="form-check-input"
                             />
                     </div>
                     <br/>
                     <div className="form-check">
-                        <h2>Friendliness</h2>
-                        <label>Option 1</label>
+                        <h2>Cold Hardy</h2>
+                        <label>Yes</label>
                             <input
                                 type="radio"
-                                name="friendliness"
-                                value="1"
+                                name="coldHardy"
+                                value="true"
                                 className="form-check-input"
                             />
-                        <label>Option 2</label>
+                        <label>No</label>
                             <input
                                 type="radio"
-                                name="friendliness"
-                                value="2"
+                                name="coldHardy"
+                                value="false"
                                 className="form-check-input"
                             />
                     </div>

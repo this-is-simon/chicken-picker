@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Route} from "react-router-dom";
 import Header from "../components/Header";
 import Form from "../components/Form";
@@ -7,17 +7,11 @@ import {About} from "../components/About";
 import {Contact} from "../components/Contact";
 
 class ChickenPicker extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            chicken:
-                {
-                    appearance: '',
-                    friendliness: ''
-                },
-            perfectChicken: '',
-            isSubmitted: false
-        };
+
+    state = {
+        chickenPreferences: null,
+        perfectChicken: '',
+        isSubmitted: false
     };
 
     // TODO write chickenPickingCalculator
@@ -26,10 +20,10 @@ class ChickenPicker extends Component {
         event.preventDefault();
         const data = new FormData(event.target);
         this.setState({
-            chicken:
+            chickenPreferences:
                 {
-                    appearance: data.get('appearance'),
-                    friendliness: data.get('friendliness')
+                    beginnerFriendly: data.get('beginnerFriendly'),
+                    coldHardy: data.get('coldHardy')
                 },
             isSubmitted: true
         });
@@ -37,17 +31,23 @@ class ChickenPicker extends Component {
 
     //TODO consider passing chicken object {} to PerfectChicken, eg pickedChicken={ this.state.chicken }
     render() {
-        return (
+
+        let perfectChicken;
+        if (this.state.isSubmitted) {
+            perfectChicken = <PerfectChicken chickenPreferences={this.state.chickenPreferences}/>
+        }
+    
+    return (
             <div className="ChickenPicker">
-                <Header />
+                <Header/>
                 <Route path="/" exact render={() =>
                     <React.Fragment>
                         <Form handleFormSubmit={this.handleFormSubmit}/>
-                        {this.state.isSubmitted && <PerfectChicken/>}
+                        {perfectChicken}
                     </React.Fragment>
                 }/>
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
+                <Route path="/about" component={About}/>
+                <Route path="/contact" component={Contact}/>
             </div>
         );
     }
