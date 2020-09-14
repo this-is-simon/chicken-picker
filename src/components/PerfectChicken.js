@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import fancyChicken from '../assets/images/fancy_chicken_1.jpg';
 import {chickensData} from "../mockData";
-import { ResultText } from "../components/ResultText"
+import { ResultText } from "./ResultText";
+import { ChickenInfo } from "./ChickenInfo";
 
 class PerfectChicken extends Component {
 
     findPerfectChickens = () => {
-        console.log("chickpref", this.props.formData)
-        console.log("chickens", chickensData)
         const result = chickensData.filter(chicken => {
             return chicken.coldHardy.toString() === this.props.formData.coldHardy &&
-            chicken.beginnerFriendly.toString() === this.props.formData.beginnerFriendly
+            chicken.beginnerFriendly.toString() === this.props.formData.beginnerFriendly &&
+            chicken.eggProduction.toString() === this.props.formData.eggProduction
         });
-        console.log('result', result)
         return result
     }
 
@@ -20,17 +18,13 @@ class PerfectChicken extends Component {
         const chickensArray = this.findPerfectChickens();
         const chickens = chickensArray.map(chicken => {
             return (
-                <div>
-                <h3>{chicken.name}</h3>
-                <img src={chicken.image} />
-                </div>
-
+                <ChickenInfo chicken={chicken} />
             )
         })
         
         return (
             <div>
-                <ResultText resultsNumber={chickensArray.length}>hiya</ResultText>
+                <ResultText resultsNumber={chickensArray.length} />
                 {chickens}
             </div>
         )

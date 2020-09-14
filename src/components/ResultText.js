@@ -1,9 +1,6 @@
 import React from "react";
 
 export const ResultText = (props) => {
-    console.log("number of results", props.resultsNumber);
-
-
     let text;
     switch (true) {
         case (props.resultsNumber === 1):

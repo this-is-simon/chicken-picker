@@ -41,6 +41,31 @@ class Form extends Component {
                                 className="form-check-input"
                             />
                     </div>
+                    <br />
+                    <div className="form-check">
+                        <h2>Egg Production</h2>
+                        <label>High</label>
+                            <input
+                                type="radio"
+                                name="eggProduction"
+                                value="200"
+                                className="form-check-input"
+                            />
+                        <label>Medium</label>
+                            <input
+                                type="radio"
+                                name="eggProduction"
+                                value="150"
+                                className="form-check-input"
+                            />
+                        <label>Low</label>
+                            <input
+                                type="radio"
+                                name="eggProduction"
+                                value="100"
+                                className="form-check-input"
+                            />
+                    </div>
 
                     <div className="form-group">
                         <button className="btn btn-primary mt-2" type="submit">

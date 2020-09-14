@@ -6,7 +6,7 @@ export const chickensData = [
         coldHardy: true,
         dualPurpose: true,
         temperament: "Docile",
-        eggsMinimum: 200,
+        eggProduction: 200,
         eggColour: "Chocolate",
         info: "lorem ipsum etc",
         image: 'https://www.thehappychickencoop.com/wp-content/uploads/2018/06/Australorp.png',
@@ -18,7 +18,7 @@ export const chickensData = [
         coldHardy: true,
         dualPurpose: false,
         temperament: "Flighty",
-        eggsMinimum: 100,
+        eggProduction: 100,
         eggColour: "Cream",
         info: "lorem ipsum etc",
         image: 'https://www.thehappychickencoop.com/wp-content/uploads/2018/06/Ayam-Cemani.png'
@@ -30,7 +30,7 @@ export const chickensData = [
         coldHardy: true,
         dualPurpose: true,
         temperament: "Peaceful",
-        eggsMinimum: 150,
+        eggProduction: 150,
         eggColour: "Chocolate",
         info: "lorem ipsum etc",
         image: 'https://www.thehappychickencoop.com/wp-content/uploads/2018/06/Black-Copper-Marans.png'

@@ -23,7 +23,8 @@ class ChickenPicker extends Component {
             formData:
                 {
                     beginnerFriendly: data.get('beginnerFriendly'),
-                    coldHardy: data.get('coldHardy')
+                    coldHardy: data.get('coldHardy'),
+                    eggProduction: data.get('eggProduction')
                 },
             isSubmitted: true
         });
