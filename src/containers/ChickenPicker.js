@@ -9,7 +9,7 @@ import {Contact} from "../components/Contact";
 class ChickenPicker extends Component {
 
     state = {
-        chickenPreferences: null,
+        formData: null,
         perfectChicken: '',
         isSubmitted: false
     };
@@ -20,7 +20,7 @@ class ChickenPicker extends Component {
         event.preventDefault();
         const data = new FormData(event.target);
         this.setState({
-            chickenPreferences:
+            formData:
                 {
                     beginnerFriendly: data.get('beginnerFriendly'),
                     coldHardy: data.get('coldHardy')
@@ -34,7 +34,7 @@ class ChickenPicker extends Component {
 
         let perfectChicken;
         if (this.state.isSubmitted) {
-            perfectChicken = <PerfectChicken chickenPreferences={this.state.chickenPreferences}/>
+            perfectChicken = <PerfectChicken formData={this.state.formData}/>
         }
     
     return (
