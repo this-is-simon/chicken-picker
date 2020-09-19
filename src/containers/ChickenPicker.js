@@ -36,6 +36,7 @@ class ChickenPicker extends Component {
                 ...prevState.formData,
                 [section]: value
             },
+            isSubmitted: false
         }))
     }
 
@@ -57,7 +58,11 @@ class ChickenPicker extends Component {
                 <Header/>
                 <Route path="/" exact render={() =>
                     <React.Fragment>
-                        <Form handleFormChange={this.handleFormChange} handleTestFormSubmit={this.handleTestFormSubmit} />
+                        <Form 
+                            handleFormChange={this.handleFormChange} 
+                            handleTestFormSubmit={this.handleTestFormSubmit}
+                            formData={this.state.formData}
+                        />
                         {perfectChicken}
                     </React.Fragment>
                 }/>
