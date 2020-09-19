@@ -1,81 +1,27 @@
-import React, {Component} from 'react';
+import React from "react";
+import styled from "styled-components";
 
-class Form extends Component {
+const Option = styled.div`
+    width: 100px;
+    border: 1px solid lightgrey;
+`
 
-    render() {
-        return (
-            <div className='Form'>
-                <form onSubmit={this.props.handleFormSubmit}>
-                    <h2>Beginner Friendly</h2>
-                    <div className="form-check">
-                        <label>Yes</label>
-                            <input
-                                type="radio"
-                                name="beginnerFriendly"
-                                value="true"
-                                className="form-check-input"
-                            />
-                        <label>No</label>
-                            <input
-                                type="radio"
-                                name="beginnerFriendly"
-                                value="false"
-                                className="form-check-input"
-                            />
-                    </div>
-                    <br/>
-                    <div className="form-check">
-                        <h2>Cold Hardy</h2>
-                        <label>Yes</label>
-                            <input
-                                type="radio"
-                                name="coldHardy"
-                                value="true"
-                                className="form-check-input"
-                            />
-                        <label>No</label>
-                            <input
-                                type="radio"
-                                name="coldHardy"
-                                value="false"
-                                className="form-check-input"
-                            />
-                    </div>
-                    <br />
-                    <div className="form-check">
-                        <h2>Egg Production</h2>
-                        <label>High</label>
-                            <input
-                                type="radio"
-                                name="eggProduction"
-                                value="200"
-                                className="form-check-input"
-                            />
-                        <label>Medium</label>
-                            <input
-                                type="radio"
-                                name="eggProduction"
-                                value="150"
-                                className="form-check-input"
-                            />
-                        <label>Low</label>
-                            <input
-                                type="radio"
-                                name="eggProduction"
-                                value="100"
-                                className="form-check-input"
-                            />
-                    </div>
-
-                    <div className="form-group">
-                        <button className="btn btn-primary mt-2" type="submit">
-                            Pick Chicken
-                        </button>
-                    </div>
-                </form>
-            </div>
-        )
-    }
+const Form = (props) => {
+    return (
+        <div>
+            <h2>Beginner Friendly?</h2>
+            <Option onClick={() => { props.handleFormChange('beginnerFriendly', true)}}>True</Option>
+            <Option onClick={() => { props.handleFormChange('beginnerFriendly', false)}}>False</Option>
+            <h2>Cold Hardy?</h2>
+            <Option onClick={() => { props.handleFormChange('coldHardy', true)}}>True</Option>
+            <Option onClick={() => { props.handleFormChange('coldHardy', false)}}>False</Option>
+            <h2>Egg Production?</h2>
+            <Option onClick={() => { props.handleFormChange('eggProduction', 200)}}>High</Option>
+            <Option onClick={() => { props.handleFormChange('eggProduction', 150)}}>Medium</Option>
+            <Option onClick={() => { props.handleFormChange('eggProduction', 100)}}>Low</Option>
+            <button onClick={() => props.handleTestFormSubmit()}>Submit</button>
+        </div>
+    )
 }
 
 export default Form;

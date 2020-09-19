@@ -7,9 +7,9 @@ class PerfectChicken extends Component {
 
     findPerfectChickens = () => {
         const result = chickensData.filter(chicken => {
-            return chicken.coldHardy.toString() === this.props.formData.coldHardy &&
-            chicken.beginnerFriendly.toString() === this.props.formData.beginnerFriendly &&
-            chicken.eggProduction.toString() === this.props.formData.eggProduction
+            return chicken.coldHardy === this.props.formData.coldHardy &&
+            chicken.beginnerFriendly === this.props.formData.beginnerFriendly &&
+            chicken.eggProduction === this.props.formData.eggProduction
         });
         return result
     }

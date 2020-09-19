@@ -14,23 +14,37 @@ class ChickenPicker extends Component {
         isSubmitted: false
     };
 
-    // TODO write chickenPickingCalculator
+    // handleFormSubmit = (event) => {
+    //     event.preventDefault();
+    //     const data = new FormData(event.target);
+    //     this.setState({
+    //         formData:
+    //             {
+    //                 beginnerFriendly: data.get('beginnerFriendly'),
+    //                 coldHardy: data.get('coldHardy'),
+    //                 eggProduction: data.get('eggProduction')
+    //             },
+    //         isSubmitted: true
+    //     });
+    // };
 
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.target);
+    handleFormChange = (section, value) => {
+        console.log("the person selected...", section, value)
+        this.setState(prevState => ({
+            ...this.state,
+            formData: {
+                ...prevState.formData,
+                [section]: value
+            },
+        }))
+    }
+
+    handleTestFormSubmit = () => {
         this.setState({
-            formData:
-                {
-                    beginnerFriendly: data.get('beginnerFriendly'),
-                    coldHardy: data.get('coldHardy'),
-                    eggProduction: data.get('eggProduction')
-                },
             isSubmitted: true
-        });
-    };
+        })
+    }
 
-    //TODO consider passing chicken object {} to PerfectChicken, eg pickedChicken={ this.state.chicken }
     render() {
 
         let perfectChicken;
@@ -43,7 +57,7 @@ class ChickenPicker extends Component {
                 <Header/>
                 <Route path="/" exact render={() =>
                     <React.Fragment>
-                        <Form handleFormSubmit={this.handleFormSubmit}/>
+                        <Form handleFormChange={this.handleFormChange} handleTestFormSubmit={this.handleTestFormSubmit} />
                         {perfectChicken}
                     </React.Fragment>
                 }/>
