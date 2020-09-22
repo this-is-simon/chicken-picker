@@ -55,6 +55,12 @@ const Form = (props) => {
                 <Option onClick={() => { props.handleFormChange('eggProduction', 150)}}>Medium</Option>
                 <Option onClick={() => { props.handleFormChange('eggProduction', 100)}}>Low</Option>
             </OptionContainer>
+
+            <h2>Dual Purpose?</h2>
+            <OptionContainer>
+                <Option onClick={() => { props.handleFormChange('dualPurpose', true)}}>True</Option>
+                <Option onClick={() => { props.handleFormChange('dualPurpose', false)}}>False</Option>
+            </OptionContainer>
     
             <SubmitButton disabled={!props.formData} onClick={() => props.handleTestFormSubmit()}>Submit</SubmitButton>
         </div>
